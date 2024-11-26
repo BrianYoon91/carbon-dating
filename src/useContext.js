@@ -18,7 +18,6 @@ import {
 	updateDoc,
 } from "firebase/firestore";
 import { message } from "antd";
-import AppContext from "antd/es/app/context";
 
 import { auth, dataCollection } from "./firebase";
 
@@ -105,25 +104,36 @@ export function AppContextProvider({ children }) {
 
 	const userLoginCheck = async (user) => {
 		try {
+			// Reference the user's document in the Firestore collection
 			const userDocRef = doc(dataCollection, user.uid);
 			const docSnapshot = await getDoc(userDocRef);
+
+			// Default user data to be set if the document doesn't exist
 			const userData = {
 				userLogin: {
 					email: user.email,
 					uid: user.uid,
 				},
 			};
+
+			// Ensure userUid is set immediately
 			setUserUid(user.uid);
-			const existingData = docSnapshot.data();
+
 			if (docSnapshot.exists()) {
+				// Extract existing data from the document
+				const existingData = docSnapshot.data();
 				const { userInfo, categoryLikes, topFive, pictures, profilePicture } =
-					existingData;
-				setUserInfo(userInfo);
-				setCategoryLikes(categoryLikes);
-				setTopFive(topFive);
+					existingData || {};
+
+				// Safely set state with the extracted data
+				setUserInfo(userInfo || null);
+				setCategoryLikes(categoryLikes || null);
+				setTopFive(topFive || []);
 				setUploadedPictures(pictures || []);
-				setProfilePicture(profilePicture);
+				setProfilePicture(profilePicture || null);
 				setCurrentUserProfile(existingData);
+
+				// Update user login info if missing
 				if (!existingData.userLogin) {
 					await setDoc(userDocRef, userData);
 				} else {
@@ -132,11 +142,19 @@ export function AppContextProvider({ children }) {
 					});
 				}
 			} else {
+				// If the document doesn't exist, create it with default data
 				await setDoc(userDocRef, userData);
+				setCurrentUserProfile(userData);
 			}
+
+			// Signal that the app has finished loading user data
 			setIsLoading(false);
 		} catch (error) {
-			console.log(error);
+			// Log the error for debugging
+			console.error("Error in userLoginCheck:", error.message);
+
+			// Ensure `setIsLoading` is turned off even in case of errors
+			setIsLoading(false);
 		}
 	};
 

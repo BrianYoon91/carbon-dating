@@ -12,7 +12,7 @@ export const LandingPage = () => {
 				<Link to="/loginpage">
 					<DefaultButton>L o g i n</DefaultButton>
 				</Link>
-				<Link to="/signuppage">
+				<Link to="/signup">
 					<DefaultButton>Make Account</DefaultButton>
 				</Link>
 			</div>

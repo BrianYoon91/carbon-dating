@@ -63,7 +63,7 @@ export const LoginPage = () => {
 				</Form.Item>
 				<div className="flex flex-col mt-10 gap-4">
 					<DefaultButton onClick={signIn}>
-						<h2>L o g i n</h2>
+						<h3>L o g i n</h3>
 					</DefaultButton>
 					<DefaultButton onClick={googleSignIn}>
 						<h3>Sign In With Google</h3>
