@@ -10,6 +10,12 @@ import {
 	CalibrationTopFive,
 	CalibrationDone,
 	ProfilePage,
+	SwipeLandingPage,
+	MatchesPage,
+	ChatRoom,
+	OverallMessages,
+	TierListPage,
+	PageNotFound,
 } from "./features";
 
 export const appComponents = [
@@ -56,5 +62,29 @@ export const appComponents = [
 	{
 		element: <ProfilePage />,
 		path: "/profilepage",
+	},
+	{
+		element: <SwipeLandingPage />,
+		path: "/swipelandingpage",
+	},
+	{
+		element: <MatchesPage />,
+		path: "/matches",
+	},
+	{
+		element: <ChatRoom />,
+		path: "/chatroom/:roomNumber/:matchedUser",
+	},
+	{
+		element: <OverallMessages />,
+		path: "/overallmessages",
+	},
+	{
+		element: <TierListPage />,
+		path: "/tierlistpage",
+	},
+	{
+		element: <PageNotFound />,
+		path: "*",
 	},
 ];

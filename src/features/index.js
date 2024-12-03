@@ -12,6 +12,16 @@ import { CalibrationDone } from "./calibration/calibrationDone";
 
 import { ProfilePage } from "./profile/profilePage";
 
+import { MatchesCard } from "./matches/matchesCards";
+import { MatchesPage } from "./matches/matchesPage";
+import { SwipeLandingPage } from "./matches/swipeLandingPage";
+
+import { ChatRoom } from "./messages/chatroom";
+import { OverallMessages } from "./messages/overallMessages";
+
+import { PageNotFound } from "./utility/pageNotFound";
+import { TierListPage } from "./utility/tierListPage";
+
 export {
 	LandingPage,
 	LoginPage,
@@ -24,4 +34,11 @@ export {
 	CalibrationTopFive,
 	CalibrationDone,
 	ProfilePage,
+	MatchesCard,
+	MatchesPage,
+	SwipeLandingPage,
+	ChatRoom,
+	OverallMessages,
+	PageNotFound,
+	TierListPage,
 };
