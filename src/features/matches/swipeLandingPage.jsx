@@ -35,7 +35,6 @@ export const SwipeLandingPage = () => {
 		nonSwipedUsers,
 		roomNumber,
 		setRoomNumber,
-		setMatchNofiticationStatus,
 		modalIsOpen,
 		setModalIsOpen,
 	} = useAppContext();
@@ -77,6 +76,7 @@ export const SwipeLandingPage = () => {
 				return profile;
 			}
 		});
+
 		setFilteredProfiles(withProfilePic);
 	};
 
@@ -348,7 +348,7 @@ export const SwipeLandingPage = () => {
 
 	return (
 		<>
-			<div className="flex flex-col mt-[25%]">
+			<div className="flex flex-col mt-10">
 				<div className="flex justify-center m-4">
 					<motion.div
 						className="jello-horizontal"
@@ -435,26 +435,27 @@ export const SwipeLandingPage = () => {
 						</div>
 					</Modal>
 					<AnimatePresence onExitComplete={() => setLeaveX(0)}>
-						{filteredProfiles.map((profile, index) => {
-							return (
-								<MatchesCard
-									key={profile.userLogin.uid}
-									index={index}
-									profile={profile}
-									activeIndex={activeIndex}
-									profileExpanded={profileExpanded}
-									onDragEnd={onDragEnd}
-									currentProfile={filteredProfiles[index]}
-								/>
-							);
-						})}
+						{filteredProfiles.length > 0 ? (
+							filteredProfiles.map((profile, index) => {
+								return (
+									<MatchesCard
+										key={profile.userLogin.uid}
+										index={index}
+										profile={profile}
+										activeIndex={activeIndex}
+										profileExpanded={profileExpanded}
+										onDragEnd={onDragEnd}
+										currentProfile={filteredProfiles[index]}
+									/>
+								);
+							})
+						) : (
+							<div className="flex flex-col justify-center items-center mt-12">
+								<h2 className="text-center">No one to swipe!</h2>
+								<h2 className="text-center">Please come back later!</h2>
+							</div>
+						)}
 					</AnimatePresence>
-					{filteredProfiles.length === 0 ? (
-						<div className="flex flex-col justify-center items-center mt-6">
-							<h3 className="text-center">No more!</h3>
-							<h3 className="text-center">Please come back later!</h3>
-						</div>
-					) : null}
 				</div>
 				<div className="w-full flex flex-col justify-center mt-[300px]">
 					<h3 className="text-center mb-4">

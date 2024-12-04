@@ -4,6 +4,7 @@ import { CheckCircleOutlined, CloseCircleOutlined } from "@ant-design/icons";
 import { motion, AnimatePresence } from "framer-motion";
 import axios from "axios";
 import { useAppContext } from "../../useContext";
+import { Spinner } from "../../components/spin";
 
 const { Meta } = Card;
 
@@ -18,6 +19,7 @@ export function CategoryPictures({
 	const { setApiData, apiData, setLeaveX } = useAppContext();
 	const [titleAndImage, setTitleAndImage] = useState({ title: "", image: "" });
 	const [removedCards, setRemovedCards] = useState([]);
+	const [loading, setIsLoading] = useState(true);
 
 	const otherArray = ["places", "animals", "sports", "hobbies"];
 
@@ -28,12 +30,14 @@ export function CategoryPictures({
 			if (otherArray.includes(category)) {
 				try {
 					apiFetchObj.other();
+					setIsLoading(false);
 				} catch (error) {
 					console.log(error);
 				}
 			} else {
 				try {
 					apiFetchObj[category]();
+					setIsLoading(false);
 				} catch (error) {
 					console.log(error);
 				}
@@ -225,6 +229,7 @@ export function CategoryPictures({
 	return (
 		<>
 			<div className="flex flex-col items-center relative">
+				{loading && <Spinner />}
 				<AnimatePresence onExitComplete={() => setLeaveX(0)}>
 					{apiData?.length > 0 && !otherArray.includes(category)
 						? apiData.map(categoryComponents[category])

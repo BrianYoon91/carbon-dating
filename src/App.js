@@ -26,13 +26,10 @@ function App() {
 		categoryLikes,
 		topFive,
 		setNonSwipedUsers,
-		setMatchedUpdates,
 		setMatchedUsers,
-		setMessages,
 		setUnreadMessageCount,
 		currentUserProfile,
 		setIsLoading,
-		setRecentMessages,
 		setRoomInfo,
 	} = useAppContext();
 	const [calibrationDone, setCalibrationDone] = useState(false);
@@ -234,7 +231,7 @@ function App() {
 					margin: 5,
 					maxWidth: 480,
 					borderStyle: "double",
-					borderColor: "black",
+					borderColor: "#7f5af0",
 					borderWidth: 4,
 					height: "100vh",
 				}}
@@ -252,7 +249,7 @@ function App() {
 				<Content
 					style={{
 						background: "white",
-						overflow: "auto",
+						overflowY: "auto",
 					}}
 				>
 					<Routes>

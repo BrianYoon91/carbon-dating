@@ -9,14 +9,7 @@ import {
 	onAuthStateChanged,
 } from "firebase/auth";
 
-import {
-	doc,
-	setDoc,
-	getDoc,
-	getDocs,
-	onSnapshot,
-	updateDoc,
-} from "firebase/firestore";
+import { doc, setDoc, getDoc, getDocs, updateDoc } from "firebase/firestore";
 import { message } from "antd";
 
 import { auth, dataCollection } from "./firebase";
