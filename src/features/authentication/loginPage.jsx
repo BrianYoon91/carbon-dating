@@ -65,9 +65,6 @@ export const LoginPage = () => {
 					<DefaultButton onClick={signIn}>
 						<h3>L o g i n</h3>
 					</DefaultButton>
-					<DefaultButton onClick={googleSignIn}>
-						<h3>Sign In With Google</h3>
-					</DefaultButton>
 					<div className="flex justify-center">
 						<Link to="/signup">
 							<DefaultButton>

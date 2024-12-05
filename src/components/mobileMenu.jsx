@@ -32,6 +32,7 @@ export function MobileMenu() {
 			<MenuOutlined
 				style={{
 					fontSize: 25,
+					color: " #7f5af0",
 				}}
 				onClick={showDrawer}
 			/>
@@ -39,6 +40,9 @@ export function MobileMenu() {
 				<Space direction="vertical" style={{ width: "100%" }}>
 					{(!userInfo && !categoryLikes) || (userInfo && !categoryLikes) ? (
 						<Button
+							style={{
+								color: " #7f5af0",
+							}}
 							block
 							onClick={() => {
 								navigate(
@@ -56,6 +60,9 @@ export function MobileMenu() {
 					{profilePicture ? (
 						<>
 							<Button
+								style={{
+									color: " #7f5af0",
+								}}
 								block
 								onClick={() => {
 									navigate("/profilepage");
@@ -65,6 +72,9 @@ export function MobileMenu() {
 								Profile Page
 							</Button>
 							<Button
+								style={{
+									color: " #7f5af0",
+								}}
 								block
 								onClick={() => {
 									navigate("/swipelandingpage");
@@ -74,6 +84,9 @@ export function MobileMenu() {
 								Swiping
 							</Button>
 							<Button
+								style={{
+									color: " #7f5af0",
+								}}
 								block
 								onClick={() => {
 									navigate("/matches");
@@ -83,6 +96,9 @@ export function MobileMenu() {
 								Matches
 							</Button>
 							<Button
+								style={{
+									color: " #7f5af0",
+								}}
 								block
 								onClick={() => {
 									navigate("/overallmessages");
@@ -92,6 +108,9 @@ export function MobileMenu() {
 								Messages
 							</Button>
 							<Button
+								style={{
+									color: " #7f5af0",
+								}}
 								block
 								onClick={() => {
 									navigate("/tierlistpage");
@@ -103,6 +122,9 @@ export function MobileMenu() {
 						</>
 					) : !profilePicture && userInfo && categoryLikes ? (
 						<Button
+							style={{
+								color: " #7f5af0",
+							}}
 							block
 							onClick={() => {
 								navigate("/profilepage");
@@ -113,6 +135,9 @@ export function MobileMenu() {
 						</Button>
 					) : null}
 					<Button
+						style={{
+							color: " #7f5af0",
+						}}
 						block
 						onClick={() => {
 							signOut();
