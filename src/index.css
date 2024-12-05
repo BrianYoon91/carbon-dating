@@ -15,11 +15,13 @@ body,
 	background-color: #fffffe;
 }
 
-.anticon .ant-badge,
-.anticon {
+.anticon,
+.ant-badge {
 	color: #7f5af0;
 }
-.ant-badge:hover {
+
+.ant-badge:hover,
+.anticon:hover {
 	color: skyblue;
 }
 
