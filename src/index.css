@@ -15,6 +15,14 @@ body,
 	background-color: #fffffe;
 }
 
+.anticon .ant-badge,
+.anticon {
+	color: #7f5af0;
+}
+.ant-badge:hover {
+	color: skyblue;
+}
+
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
 		monospace;

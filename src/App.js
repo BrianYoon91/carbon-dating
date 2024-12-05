@@ -266,7 +266,7 @@ function App() {
 							background: "white",
 							width: "100%",
 							borderTopStyle: "double",
-							borderTopColor: "black",
+							borderColor: "#7f5af0",
 							borderTopWidth: 4,
 						}}
 					>

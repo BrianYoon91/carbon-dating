@@ -133,15 +133,24 @@ export const ProfilePage = () => {
 	return (
 		<>
 			<div className="flex flex-col mx-4 gap-2">
-				<h2 className="text-center">profile</h2>
+				<h1 className="text-center mt-5 mb-auto font-bold">profile</h1>
 				<div className="flex justify-center">
 					<ProfilePictureBox />
 				</div>
 				<div className="flex flex-col my-20 gap-3">
-					<Button size="large" onClick={() => navigate("/recalibrationpage")}>
+					<Button
+						style={{
+							color: " #7f5af0",
+						}}
+						size="large"
+						onClick={() => navigate("/recalibrationpage")}
+					>
 						Recalibrate
 					</Button>
 					<Button
+						style={{
+							color: " #7f5af0",
+						}}
 						size="large"
 						onClick={() => navigate("/calibrationquestions")}
 					>
@@ -158,7 +167,14 @@ export const ProfilePage = () => {
 							multiple={true}
 							maxCount={5}
 						>
-							<Button block size="large" icon={<UploadOutlined />}>
+							<Button
+								style={{
+									color: " #7f5af0",
+								}}
+								block
+								size="large"
+								icon={<UploadOutlined />}
+							>
 								Upload Pictures
 							</Button>
 						</Upload>
@@ -177,7 +193,7 @@ export const ProfilePage = () => {
 							/>
 						</Modal>
 						<Button
-							style={{ marginTop: 10 }}
+							style={{ marginTop: 10, color: " #7f5af0" }}
 							htmlType="submit"
 							size="large"
 							block

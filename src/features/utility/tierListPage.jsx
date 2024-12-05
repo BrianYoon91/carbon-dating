@@ -3,9 +3,11 @@ export const TierListPage = () => {
 		<>
 			<div className="m-10">
 				{tierArray.map((tier) => (
-					<div className="flex flex-col">
-						<h3 className="font-bold">{tier.tier}</h3>
-						<p>{tier.description}</p>
+					<div className="flex flex-col gap-2">
+						<h2 className="font-bold mt-2 font-color text-[#7f5af0]">
+							{tier.tier}
+						</h2>
+						<p className="text-xl">{tier.description}</p>
 					</div>
 				))}
 			</div>
